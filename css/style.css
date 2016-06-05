@@ -1,0 +1,8 @@
+.input-field input[type=text]:focus + label,
+.input-field input[type=text]:focus,
+textarea:focus + label,
+textarea:focus,
+select, .select-dropdown li span{
+  color: #2962ff !important;
+  border-color: #2962ff !important;
+}

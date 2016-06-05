@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+  <head>
+    <title>FVI Summer Code Camp Apply</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="blue lighten-5">
+    <div class="container">
+      <div class="row center">
+        <img class="center responsive-img" src="img/FVI-color.png" alt="Florida Vocational Institute" />
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <div class="card-panel">
+            <p class="flow-text">Welcome to the application page for Florida Vocational Institute's Summer Coding Boot Camp.
+            </p>
+            <p class="flow-text">
+              In this class, you will build the following projects, among others:
+              <ol>
+                <li class="flow-text">A webpage made with Material Design</li>
+                <li class="flow-text">A simple game of Pong</li>
+                <li class="flow-text">A Digital Keyboard Instrument</li>
+                <li class="flow-text">A 2-D interactive page with a keyboard-controlled character</li>
+              </ol>
+            </p>
+            <p class="flow-text">
+              All our projects are fun and engaging, we pride ourselves on keeping the boring to a minimum.
+              We teach you HTML, CSS, JavaScript and jQuery but it's not about the lecture, it's all about
+              the projects.
+            </p>
+            <form id="aplication">
+              <div class="row">
+                <div class="input-field col s12 m6">
+                  <input id="first_name" name="first_name" type="text">
+                  <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s12 m6">
+                  <input id="last_name" type="text" name="last_name">
+                  <label for="last_name">Last Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="address" >Address</label>
+                  <input id="address" name="address" type="text" />
+                </div>
+              </div>
+                <div class="row">
+                  <div class="input-field col s12 m6">
+                    <input id="phone" name="phone" type="text">
+                    <label for="phone">Phone</label>
+                  </div>
+                  <div class="input-field col s12 m6">
+                    <input id="email" type="text" name="phone">
+                    <label for="email">E-Mail</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m6">
+                    <input id="parent_name" name="parent_name" type="text">
+                    <label for="parent_name">Parent's Full Name</label>
+                  </div>
+                  <div class="input-field col s12 m6">
+                    <input id="age" type="number" name="age">
+                    <label for="age">Student's Age</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m6">
+                    <input id="high_school" name="high_school" type="text">
+                    <label for="high_school">High School</label>
+                  </div>
+                  <div class="input-field col s12 m6">
+                    <input id="high_school_zip" type="text" name="high_school_zip">
+                    <label for="high_school_zip">High School Zip</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m6">
+                    <input id="gpa" name="gpa" type="text">
+                    <label for="gpa">GPA</label>
+                  </div>
+                  <div class="input-field col s12 m6">
+                    <input id="grad_date" type="text" name="grad_date">
+                    <label for="grad_date">HS Graduation Year</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 input-field">
+                    <textarea id="why_coding" name="why_coding" class="materialize-textarea"></textarea>
+                    <label for="why_coding">Why do you want to learn to code?</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 input-field">
+                    <textarea id="compsci" name="compsci" class="materialize-textarea"></textarea>
+                    <label for="compsci">Have you taken a Computer Science class before? What language did you learn? Describe your experience.</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s12 input-field">
+                    <textarea id="transportation" name="transportation" class="materialize-textarea"></textarea>
+                    <label for="transportation">If accepted, how will you get transportation to the campus located at 7757 West Flagler Street, Miami, FL 33144?</label>
+                  </div>
+                </div>
+
+                  <p class="flow-text">
+                    What arrangements have you <strong>already made</strong> for continuing your education?
+                  </p>
+                <div class="row">
+                  <div class="col s12 input-field">
+                    <select>
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="mdc">Miami-Dade College</option>
+                      <option value="competitor">Vocational or Associate's Degree Track</option>
+                      <option value="four year">Four year University</option>
+                      <option value="no plans">I am not currently accepted into higher ed</option>
+                    </select>
+                  </div>
+                </div>
+                <a class="waves-effect waves-light btn blue darken-2" id="btn_submit">
+                  <i class="material-icons left">play_arrow</i><span>Apply Now!</span>
+                </a>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(function() {
+       $('select').material_select();
+      });
+
+      $("#btn_submit").on("click", sbnHandler);
+
+      function sbnHandler(){
+        function reattach(){
+          $self.find("span").html("Apply now!");
+          $("#btn_submit").on("click", sbnHandler);
+        }
+        var $self = $(this);
+        $self.find("span").html("Wait...");
+        $("#btn_submit").off("click", sbnHandler);
+        $.ajax({
+          url: 'http://www.fvi-grad.com:4004/ccapply',
+          method: 'POST',
+          data: $("form").serializeArray().reduce( function(p,c) { p[c.name] = c.value; return p;}),
+          success: function(resp, text, xhr){
+            if (!resp.includes("error"))
+              $self.find("span").html("Message sent!");
+            else{
+              reattach();
+              alert("There was an error. Please try again. "+resp);
+            }
+          },
+          error: function(xhr, err){
+            alert ("There was a problem! Check your internet connection and try again. "+err);
+            reattach();
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
