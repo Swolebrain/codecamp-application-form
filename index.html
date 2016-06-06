@@ -157,7 +157,7 @@
         $.ajax({
           url: 'http://www.fvi-grad.com:4004/ccapply',
           method: 'POST',
-          data: $("form").serializeArray().reduce( function(p,c) { p[c.name] = c.value; return p;}),
+          data: $("form").serializeArray().reduce( function(p,c) { p[c.name] = c.value; return p;}, {}),
           success: function(resp, text, xhr){
             if (!resp.includes("error"))
               $self.find("span").html("Message sent!");
