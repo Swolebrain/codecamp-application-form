@@ -147,6 +147,10 @@
       $("#btn_submit").on("click", sbnHandler);
 
       function sbnHandler(){
+        if (formIsInvalid()){
+          alert("Please complete all fields.");
+          return;
+        }
         function reattach(){
           $self.find("span").html("Apply now!");
           $("#btn_submit").on("click", sbnHandler);
@@ -171,6 +175,20 @@
             reattach();
           }
         });
+      }
+      function formIsInvalid(){
+        return $("#first_name").val().length < 2 ||
+              $("#last_name").val().length < 2 ||
+              $("#address").val().length < 2 ||
+              $("#phone").val().length < 2 ||
+              $("#email").val().length < 2 ||
+              $("#parent_name").val().length < 2 ||
+              $("#age").val().length < 2 ||
+              $("#high_school").val().length < 2 ||
+              $("#grad_date").val().length < 2 ||
+              $("#why_coding").val().length < 2 ||
+              $("#transportation").val().length < 2 ||
+              $("#compsci").val().length < 2;
       }
     </script>
   </body>
