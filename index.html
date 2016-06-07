@@ -22,8 +22,11 @@
               changes we are experiencing.
             </p>
             <p class="flow-text">
-              The course will run every weekday from July 11th to July 22nd,
-              during the hours of 9am to 1pm. In this class, you will build
+              The code camp will be at Booker T. Washington High School in Early August.
+              Exact Date TBD. Only students from Booker T will be elegible to attend this summer camp.
+            </p>
+            <p class="flow-text">
+              In this class, you will build
               the following projects, among others:
               <ol>
                 <li class="flow-text">A webpage made with Material Design</li>
@@ -109,24 +112,13 @@
                 <div class="row">
                   <div class="col s12 input-field">
                     <textarea id="transportation" name="transportation" class="materialize-textarea"></textarea>
-                    <label for="transportation">If accepted, how will you get transportation to the campus located at 7757 West Flagler Street, Miami, FL 33144?</label>
+                    <label for="transportation">If accepted, how will you get transportation to Booker T.
+                      Washington High School?</label>
                   </div>
                 </div>
 
-                  <p class="flow-text">
-                    What arrangements have you <strong>already made</strong> for continuing your education?
-                  </p>
-                <div class="row">
-                  <div class="col s12 input-field">
-                    <select>
-                      <option value="" disabled selected>Choose your option</option>
-                      <option value="mdc">Miami-Dade College</option>
-                      <option value="competitor">Vocational or Associate's Degree Track</option>
-                      <option value="four year">Four year University</option>
-                      <option value="no plans">I am not currently accepted into higher ed</option>
-                    </select>
-                  </div>
-                </div>
+
+
                 <a class="waves-effect waves-light btn blue darken-2" id="btn_submit">
                   <i class="material-icons left">play_arrow</i><span>Apply Now!</span>
                 </a>
@@ -147,10 +139,15 @@
       $("#btn_submit").on("click", sbnHandler);
 
       function sbnHandler(){
+        if (formIsInvalid()) {
+          alert("Please fill out all form fields.");
+          return;
+        }
         function reattach(){
           $self.find("span").html("Apply now!");
           $("#btn_submit").on("click", sbnHandler);
         }
+
         var $self = $(this);
         $self.find("span").html("Wait...");
         $("#btn_submit").off("click", sbnHandler);
@@ -171,6 +168,20 @@
             reattach();
           }
         });
+      }
+      function formIsInvalid(){
+        return $("#first_name").val().length < 2 ||
+              $("#last_name").val().length < 2 ||
+              $("#address").val().length < 2 ||
+              $("#phone").val().length < 2 ||
+              $("#email").val().length < 2 ||
+              $("#parent_name").val().length < 2 ||
+              $("#age").val().length < 2 ||
+              $("#high_school").val().length < 2 ||
+              $("#grad_date").val().length < 2 ||
+              $("#why_coding").val().length < 2 ||
+              $("#transportation").val().length < 2 ||
+              $("#compsci").val().length < 2;
       }
     </script>
   </body>
